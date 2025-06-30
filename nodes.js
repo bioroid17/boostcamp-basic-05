@@ -8,6 +8,8 @@ export class Node {
      * @type {SourceLocation | null}
      */
     this.loc = null;
+
+    this.children = [];
   }
 
   addChild(child) {
