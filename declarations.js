@@ -3,9 +3,9 @@ import Identifier from "./identifiers.js";
 import Pattern from "./patterns.js";
 import FunctionBody from "./statements.js";
 
-class Declaration extends Statement {}
+export class Declaration extends Statement {}
 
-class FunctionDeclaration extends Declaration {
+export class FunctionDeclaration extends Declaration {
   constructor(id, params, body) {
     super();
     this.type = "FunctionDeclaration";
@@ -28,7 +28,7 @@ class FunctionDeclaration extends Declaration {
   }
 }
 
-class VariableDeclaration extends Declaration {
+export class VariableDeclaration extends Declaration {
   constructor(declarations, kind = "var") {
     super();
     this.type = "VariableDeclaration";
@@ -47,7 +47,7 @@ class VariableDeclaration extends Declaration {
   }
 }
 
-class VariableDeclarator extends Statement {
+export class VariableDeclarator extends Statement {
   constructor(id, init = null) {
     super();
     this.type = "VariableDeclarator";
@@ -65,9 +65,3 @@ class VariableDeclarator extends Statement {
     return `${this.id}${this.init ? ` = ${this.init}` : ""}`;
   }
 }
-export default {
-  Declaration,
-  FunctionDeclaration,
-  VariableDeclaration,
-  VariableDeclarator,
-};

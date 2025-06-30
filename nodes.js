@@ -1,4 +1,4 @@
-class Node {
+export class Node {
   constructor() {
     /**
      * @type {string}
@@ -19,7 +19,7 @@ class Node {
   }
 }
 
-class SourceLocation {
+export class SourceLocation {
   constructor(source, start, end) {
     /**
      * @type {string | null}
@@ -36,7 +36,7 @@ class SourceLocation {
   }
 }
 
-class Position {
+export class Position {
   constructor(line, column) {
     /**
      * @type {number}
@@ -48,5 +48,3 @@ class Position {
     this.column = column; // >= 0
   }
 }
-
-export default { Node, SourceLocation, Position };

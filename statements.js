@@ -5,9 +5,9 @@ import Identifier from "./identifiers.js";
 import Pattern from "./patterns.js";
 import VariableDeclaration from "./declarations.js";
 
-class Statement extends Node {}
+export class Statement extends Node {}
 
-class ExpressionStatement extends Statement {
+export class ExpressionStatement extends Statement {
   constructor(expression) {
     super();
     this.type = "ExpressionStatement";
@@ -22,7 +22,7 @@ class ExpressionStatement extends Statement {
   }
 }
 
-class Directive extends ExpressionStatement {
+export class Directive extends ExpressionStatement {
   constructor(expression, directive) {
     super(expression);
     /**
@@ -40,7 +40,7 @@ class Directive extends ExpressionStatement {
   }
 }
 
-class BlockStatement extends Statement {
+export class BlockStatement extends Statement {
   constructor(body) {
     super();
     this.type = "BlockStatement";
@@ -55,7 +55,7 @@ class BlockStatement extends Statement {
   }
 }
 
-class FunctionBody extends BlockStatement {
+export class FunctionBody extends BlockStatement {
   constructor(body) {
     super(body);
     /**
@@ -69,7 +69,7 @@ class FunctionBody extends BlockStatement {
   }
 }
 
-class EmptyStatement extends Statement {
+export class EmptyStatement extends Statement {
   constructor() {
     super();
     this.type = "EmptyStatement";
@@ -80,7 +80,7 @@ class EmptyStatement extends Statement {
   }
 }
 
-class DebuggerStatement extends Statement {
+export class DebuggerStatement extends Statement {
   constructor() {
     super();
     this.type = "DebuggerStatement";
@@ -91,7 +91,7 @@ class DebuggerStatement extends Statement {
   }
 }
 
-class WithStatement extends Statement {
+export class WithStatement extends Statement {
   constructor(object, body) {
     super();
     this.type = "WithStatement";
@@ -111,7 +111,7 @@ class WithStatement extends Statement {
 }
 
 // Control flow
-class ReturnStatement extends Statement {
+export class ReturnStatement extends Statement {
   constructor(argument) {
     super();
     this.type = "ReturnStatement";
@@ -126,7 +126,7 @@ class ReturnStatement extends Statement {
   }
 }
 
-class LabeledStatement extends Statement {
+export class LabeledStatement extends Statement {
   constructor(label, body) {
     super();
     this.type = "LabeledStatement";
@@ -145,7 +145,7 @@ class LabeledStatement extends Statement {
   }
 }
 
-class BreakStatement extends Statement {
+export class BreakStatement extends Statement {
   constructor(label) {
     super();
     this.type = "BreakStatement";
@@ -160,7 +160,7 @@ class BreakStatement extends Statement {
   }
 }
 
-class ContinueStatement extends Statement {
+export class ContinueStatement extends Statement {
   constructor(label) {
     super();
     this.type = "ContinueStatement";
@@ -176,7 +176,7 @@ class ContinueStatement extends Statement {
 }
 
 // Choice
-class IfStatement extends Statement {
+export class IfStatement extends Statement {
   constructor(test, consequent, alternate) {
     super();
     this.type = "IfStatement";
@@ -201,7 +201,7 @@ class IfStatement extends Statement {
   }
 }
 
-class SwitchStatement extends Statement {
+export class SwitchStatement extends Statement {
   constructor(discriminant, cases) {
     super();
     this.type = "SwitchStatement";
@@ -220,7 +220,7 @@ class SwitchStatement extends Statement {
   }
 }
 
-class SwitchCase extends Node {
+export class SwitchCase extends Node {
   constructor(test, consequent) {
     super();
     this.type = "SwitchCase";
@@ -242,7 +242,7 @@ class SwitchCase extends Node {
 }
 
 // Exceptions
-class ThrowStatement extends Statement {
+export class ThrowStatement extends Statement {
   constructor(argument) {
     super();
     this.type = "ThrowStatement";
@@ -257,7 +257,7 @@ class ThrowStatement extends Statement {
   }
 }
 
-class TryStatement extends Statement {
+export class TryStatement extends Statement {
   constructor(block, handler, finalizer) {
     super();
     this.type = "TryStatement";
@@ -282,7 +282,7 @@ class TryStatement extends Statement {
   }
 }
 
-class CatchClause extends Node {
+export class CatchClause extends Node {
   constructor(param, body) {
     super();
     this.type = "CatchClause";
@@ -302,7 +302,7 @@ class CatchClause extends Node {
 }
 
 // Loops
-class WhileStatement extends Statement {
+export class WhileStatement extends Statement {
   constructor(test, body) {
     super();
     this.type = "WhileStatement";
@@ -321,7 +321,7 @@ class WhileStatement extends Statement {
   }
 }
 
-class DoWhileStatement extends Statement {
+export class DoWhileStatement extends Statement {
   constructor(body, test) {
     super();
     this.type = "DoWhileStatement";
@@ -340,7 +340,7 @@ class DoWhileStatement extends Statement {
   }
 }
 
-class ForStatement extends Statement {
+export class ForStatement extends Statement {
   constructor(init, test, update, body) {
     super();
     this.type = "ForStatement";
@@ -369,7 +369,7 @@ class ForStatement extends Statement {
   }
 }
 
-class ForInStatement extends Statement {
+export class ForInStatement extends Statement {
   constructor(left, right, body) {
     super();
     this.type = "ForInStatement";
@@ -391,28 +391,3 @@ class ForInStatement extends Statement {
     return `for (${this.left} in ${this.right}) ${this.body}`;
   }
 }
-
-export default {
-  Statement,
-  ExpressionStatement,
-  Directive,
-  BlockStatement,
-  FunctionBody,
-  EmptyStatement,
-  DebuggerStatement,
-  WithStatement,
-  ReturnStatement,
-  LabeledStatement,
-  BreakStatement,
-  ContinueStatement,
-  IfStatement,
-  SwitchStatement,
-  SwitchCase,
-  ThrowStatement,
-  TryStatement,
-  CatchClause,
-  WhileStatement,
-  DoWhileStatement,
-  ForStatement,
-  ForInStatement,
-};

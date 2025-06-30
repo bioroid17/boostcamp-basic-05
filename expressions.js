@@ -2,9 +2,9 @@ import Literal from "./literals.js";
 import Identifier from "./identifiers.js";
 import Node from "./nodes.js";
 
-class Expression extends Node {}
+export class Expression extends Node {}
 
-class ThisExpression extends Expression {
+export class ThisExpression extends Expression {
   constructor() {
     super();
     this.type = "ThisExpression";
@@ -15,7 +15,7 @@ class ThisExpression extends Expression {
   }
 }
 
-class ArrayExpression extends Expression {
+export class ArrayExpression extends Expression {
   constructor(elements) {
     super();
     this.type = "ArrayExpression";
@@ -29,7 +29,7 @@ class ArrayExpression extends Expression {
     return `[${this.elements.join(", ")}]`;
   }
 }
-class ObjectExpression extends Expression {
+export class ObjectExpression extends Expression {
   constructor(properties) {
     super();
     this.type = "ObjectExpression";
@@ -43,7 +43,7 @@ class ObjectExpression extends Expression {
     return `{${this.properties.join(", ")}}`;
   }
 }
-class Property extends Node {
+export class Property extends Node {
   constructor(key, value, kind = "init") {
     super();
     this.type = "Property";
@@ -65,7 +65,7 @@ class Property extends Node {
     return `${this.key}: ${this.value}`;
   }
 }
-class FunctionExpression extends Expression {
+export class FunctionExpression extends Expression {
   constructor(id, params, body) {
     super();
     this.type = "FunctionExpression";
@@ -92,7 +92,7 @@ class FunctionExpression extends Expression {
 }
 
 // Unary operations
-class UnaryExpression extends Expression {
+export class UnaryExpression extends Expression {
   constructor(operator, argument, prefix) {
     super();
     this.type = "UnaryExpression";
@@ -115,7 +115,7 @@ class UnaryExpression extends Expression {
   }
 }
 
-class UpdateExpression extends Expression {
+export class UpdateExpression extends Expression {
   constructor(operator, argument, prefix) {
     super();
     this.type = "UpdateExpression";
@@ -139,7 +139,7 @@ class UpdateExpression extends Expression {
 }
 
 // Binary operations
-class BinaryExpression extends Expression {
+export class BinaryExpression extends Expression {
   constructor(left, operator, right) {
     super();
     this.type = "BinaryExpression";
@@ -162,7 +162,7 @@ class BinaryExpression extends Expression {
   }
 }
 
-class AssignmentExpression extends Expression {
+export class AssignmentExpression extends Expression {
   constructor(left, operator, right) {
     super();
     this.type = "AssignmentExpression";
@@ -185,7 +185,7 @@ class AssignmentExpression extends Expression {
   }
 }
 
-class LogicalExpression extends Expression {
+export class LogicalExpression extends Expression {
   constructor(left, operator, right) {
     super();
     this.type = "LogicalExpression";
@@ -209,7 +209,7 @@ class LogicalExpression extends Expression {
 }
 
 // Member expressions
-class MemberExpression extends Expression {
+export class MemberExpression extends Expression {
   constructor(object, property, computed) {
     super();
     this.type = "MemberExpression";
@@ -235,7 +235,7 @@ class MemberExpression extends Expression {
 }
 
 // Conditional expressions
-class ConditionalExpression extends Expression {
+export class ConditionalExpression extends Expression {
   constructor(test, consequent, alternate) {
     super();
     this.type = "ConditionalExpression";
@@ -259,7 +259,7 @@ class ConditionalExpression extends Expression {
 }
 
 // Call expressions
-class CallExpression extends Expression {
+export class CallExpression extends Expression {
   constructor(callee, argumentsList) {
     super();
     this.type = "CallExpression";
@@ -279,7 +279,7 @@ class CallExpression extends Expression {
 }
 
 // New expressions
-class NewExpression extends Expression {
+export class NewExpression extends Expression {
   constructor(callee, argumentsList) {
     super();
     this.type = "NewExpression";
@@ -299,7 +299,7 @@ class NewExpression extends Expression {
 }
 
 // Sequence expressions
-class SequenceExpression extends Expression {
+export class SequenceExpression extends Expression {
   constructor(expressions) {
     super();
     this.type = "SequenceExpression";
@@ -313,22 +313,3 @@ class SequenceExpression extends Expression {
     return this.expressions.join(", ");
   }
 }
-
-export default {
-  Expression,
-  ThisExpression,
-  ArrayExpression,
-  ObjectExpression,
-  Property,
-  FunctionExpression,
-  UnaryExpression,
-  UpdateExpression,
-  BinaryExpression,
-  AssignmentExpression,
-  LogicalExpression,
-  MemberExpression,
-  ConditionalExpression,
-  CallExpression,
-  NewExpression,
-  SequenceExpression,
-};

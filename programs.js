@@ -1,7 +1,7 @@
 import { Directive, Statement } from "./statements.js";
 import Node from "./nodes.js";
 
-class Program extends Node {
+export class Program extends Node {
   constructor() {
     this.type = "Program";
     /**

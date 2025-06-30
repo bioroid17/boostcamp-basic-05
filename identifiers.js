@@ -1,6 +1,6 @@
 import Expression from "./expressions.js";
 
-class Identifier extends Expression {
+export class Identifier extends Expression {
   constructor(name) {
     this.type = "Identifier";
     /**
@@ -9,5 +9,3 @@ class Identifier extends Expression {
     this.name = name;
   }
 }
-
-export default Identifier;
